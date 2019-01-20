@@ -1,0 +1,22 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import aseegg as ag
+
+dane = pd.read_csv("sub-02_trial-06-1.csv", delimiter=",", engine='python')
+
+t = np.linspace (0, 38, 200*38)
+sygnal=dane['kol2']
+
+czestOdciecia1 = 49
+czestOdciecia2 = 51
+czestOdciecia3 = 1
+czestOdciecia4 = 50
+czestProbkowania = 200
+przefiltrowany1 = ag.pasmowozaporowy(sygnal, czestProbkowania, czestOdciecia1, czestOdciecia2)
+przefiltrowany2 = ag.pasmowoprzepustowy(sygnal, czestProbkowania, czestOdciecia3, czestOdciecia4)
+# plt.plot(t, przefiltrowany1, przefiltrowany2)
+# plt.plot(t, przefiltrowany1)
+# plt.xlabel("Czas [s]")
+# plt.show()
+#
